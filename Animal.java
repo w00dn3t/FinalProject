@@ -80,11 +80,9 @@ public class Animal {
 		return true;	
 	}
 	//Blocking
-	protected int absorb(int dmgIn){
-		Random rand = new Random();
-		
-
-	}
+	//protected int absorb(int dmgIn){
+	//	Random rand = new Random();
+	//}
 	
 	//All kinds of crits
 	protected int crit(int atkDmg){
