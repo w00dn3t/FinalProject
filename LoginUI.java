@@ -55,7 +55,8 @@ public class LoginUI {
 						MatchBrowserUI browser = new MatchBrowserUI(out, in);
 						System.out.println(status);
 						frameMain.setVisible(false);
-					}
+					} else if (status.equals("fail"))
+						System.exit(0);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
