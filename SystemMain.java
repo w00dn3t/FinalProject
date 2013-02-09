@@ -12,6 +12,7 @@ public class SystemMain {
         BufferedReader in = null;
  
         try {
+        	sock = new Socket("horsetamer.no-ip.org", 7777);
             out = new PrintWriter(sock.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             System.err.println("Successful connect!");
@@ -23,7 +24,7 @@ public class SystemMain {
             System.exit(1);
         }
         
-        LoginUI loginScr = new LoginUI(out);
+        LoginUI loginScr = new LoginUI(out, in);
         
         
         

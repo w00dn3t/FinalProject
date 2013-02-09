@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -17,7 +18,7 @@ public class LoginUI {
 	JTextField passwordTextField = new JTextField(20);
 	
 	JButton loginButton = new JButton("Login");
-	public LoginUI(final PrintWriter out) {
+	public LoginUI(final PrintWriter out, final BufferedReader in) {
 		GridBagLayout layout = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		frameMain.setSize(350, 150);
@@ -48,6 +49,16 @@ public class LoginUI {
 			public void actionPerformed(ActionEvent e) {
 				out.println(usernameTextField.getText());
 				out.println(passwordTextField.getText());
+				try {
+					String status;
+					if ((status = in.readLine()).equals("proceed")){
+						MatchBrowserUI browser = new MatchBrowserUI(out, in);
+						System.out.println(status);
+						frameMain.setVisible(false);
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 
